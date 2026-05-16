@@ -18,8 +18,9 @@ A React Native mobile app (Android) to browse, search, and save favourite movies
 - Node.js
 - Android Studio + Android SDK
 - Java 17
+- Xcode + CocoaPods (for iOS)
 
-### Steps
+### Android
 
 ```bash
 # Clone the repo
@@ -35,6 +36,21 @@ npx react-native start
 # Run on Android (in a new terminal)
 npx react-native run-android
 ```
+
+### iOS
+
+```bash
+# Install iOS dependencies
+cd ios && pod install && cd ..
+
+# Start Metro bundler
+npx react-native start
+
+# Run on iOS (in a new terminal)
+npx react-native run-ios
+```
+
+> Tested on iPhone 17 Pro simulator (iOS 26.5)
 
 ## ⚙️ Key Technical Decisions
 
