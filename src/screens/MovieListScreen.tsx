@@ -113,7 +113,7 @@ const MovieListScreen = ({ navigation }: any) => {
 
       <FlatList
         data={movies}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item, index) => `${item.id}-${index}`}
         renderItem={renderMovie}
         onEndReached={loadMore}
         onEndReachedThreshold={0.5}
