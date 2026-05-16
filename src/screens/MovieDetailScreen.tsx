@@ -6,7 +6,6 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  useCallback,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { IMAGE_BASE_URL } from '../services/movieApi';
@@ -21,7 +20,7 @@ const MovieDetailScreen = ({ route, navigation }: any) => {
   }, []);
 
   const checkFavourite = async () => {
-    const checkFavourite = useCallback(async () => {
+    try {
       const data = await AsyncStorage.getItem('favourites');
       if (data) {
         const favs: Movie[] = JSON.parse(data);
@@ -33,7 +32,7 @@ const MovieDetailScreen = ({ route, navigation }: any) => {
   const toggleFavourite = async () => {
     try {
       const data = await AsyncStorage.getItem('favourites');
-    }, [checkFavourite]);
+      let favs: Movie[] = data ? JSON.parse(data) : [];
       if (isFavourite) {
         favs = favs.filter(m => m.id !== movie.id);
       } else {
